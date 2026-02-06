@@ -1,0 +1,106 @@
+.testimonial-card {
+  width: 320px;
+  height:400px;
+  padding: 20px;
+  border-radius: 16px;
+  background: #f6fffb;
+  border: 2px solid #9de7c2;
+  font-family: Inter, sans-serif;
+}
+
+.profile-img {
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+.name {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.info {
+  font-size: 14px;
+  margin-bottom: 4px;
+  color: #333;
+}
+
+.skills {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-tag {
+  background: #e6f7f0;
+  color: #167a5b;
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-weight: 500;
+}
+.testi-grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    width:100%;
+    height:auto;
+}
+.swiper-slide {
+  height:100%;
+  display:flex;
+  justify-content: center;
+} 
+.swiper{
+    width: 100%;
+}
+.testi-nav {
+  position: absolute;
+  top: 60%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+}
+.testi-prev,
+.testi-next {
+  pointer-events: all;
+}
+
+
+.testi-prev,
+.testi-next {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  background:black;
+  cursor: pointer;
+  font-size: 18px;
+  color:#fff;
+  font-size: 28px;
+}
+
+.testi-prev:hover,
+.testi-next:hover {
+  background:lightgrey;
+  color: #fff;
+}
+.skills{
+  padding-top:50px;
+}
+.testi-sec{
+  position: relative;
+}
+.testi-prev{
+  margin-left:25px;
+}
+.profile-img{
+  width:50px;
+}
+.testi-sec{
+  padding: 0px 56px;
+}

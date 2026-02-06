@@ -1,0 +1,47 @@
+/* @import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap");
+
+.faq-item {
+  border-bottom:3px solid black;
+  margin-top: 20px;
+  padding: 36px 0px;
+}
+
+.faq-question {
+  width: 100%;
+  background: transparent;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.faq-arrow {
+  width: 32px;
+  height:32px;
+  transition: transform 0.3s ease;
+}
+
+.faq-arrow.open {
+  transform: rotate(360deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  text-align: center;
+  margin-top:15px;
+}
+
+.faq-answer.show {
+  max-height: 300px; /* increase if needed */
+  
+/* .faq-text{
+    font-family:"DM Mono";
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -5%;
+}  */
