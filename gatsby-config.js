@@ -5,7 +5,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     siteUrl: `https://www.yourdomain.tld`,
-    pathPrefix: `/gatsby-demo`,
+    pathPrefix: `/gatsby-project`,
   },
   plugins: [
     {
