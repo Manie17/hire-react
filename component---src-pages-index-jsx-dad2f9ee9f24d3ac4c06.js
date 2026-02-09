@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkgatsby_demo=self.webpackChunkgatsby_demo||[]).push([[279],{7325:function(e,l,t){t.r(l);var a=t(6540);l.default=()=>a.createElement("div",null,a.createElement("h1",null,"Rails"))}}]);
+//# sourceMappingURL=component---src-pages-index-jsx-dad2f9ee9f24d3ac4c06.js.map
