@@ -228,7 +228,7 @@ export default function Rails({ data }) {
         <div className="testi-grid">
           <Swiper
             modules={[Autoplay, Navigation]}
-            spaceBetween={50}
+            spaceBetween={0}
             slidesPerView={3}
             slidesPerGroup={3}
             loop={true}
@@ -505,17 +505,7 @@ export const query = graphql`
         industryTitle
         industryDesc
 
-        industryCard {
-          title
-          description
-          icon {
-            localFile {
-              childImageSharp {
-                gatsbyImageData(placeholder: BLURRED, quality: 100)
-              }
-            }
-          }
-        }
+        
 
         indusCard {
           title

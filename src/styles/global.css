@@ -255,12 +255,17 @@ html, body{
     padding-bottom:80px;
 }
 .stats-value{
-    padding-top: 2rem;
+    padding-top: 1rem;
 }
 .stats-text{
-    padding-top: 2rem;
+    padding-top:1rem;
 }
-
+.stats-logo{
+  width: 100%;
+  height: auto;
+  padding: 0;
+  margin: 0;
+}
 
 .bussiness-img{
     width:100%;
@@ -365,6 +370,7 @@ html, body{
 }
 
 .swiper-slide {
+  width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -406,7 +412,7 @@ html, body{
 .carol-nav {
     position: absolute;
     left:150px;         
-    top: 12650px;
+    top: 12800px;
     transform: translateY(-50%);
     z-index: 10;
 }
@@ -423,15 +429,10 @@ html, body{
     cursor: pointer;
     transition: all 0.3s ease;
 }
-.testicli-img {
-  width: auto;
-  height: 50px;
-  margin-top:30px;
-}
-
 .testicli-img img {
   width: 100%;
-  height: 100%;
+  height:auto;
+  margin-top: 30px;
   object-fit: contain;
   filter: brightness(0) invert(1);
 }
@@ -997,7 +998,9 @@ html, body{
     margin-left: 0;
     text-align: center;
   }
-
+.testimonial-card{
+  align-items: center;
+}
   /* ---------- FAQ ---------- */
   .faq-grid {
     flex-direction: column;

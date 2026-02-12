@@ -277,5 +277,15 @@ export default HomePage;
 
 
 
-
+// industryCard {
+//           title
+//           description
+//           icon {
+//             localFile {
+//               childImageSharp {
+//                 gatsbyImageData(placeholder: BLURRED, quality: 100)
+//               }
+//             }
+//           }
+//         }
      
