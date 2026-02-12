@@ -1,6 +1,15 @@
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
-});
+// require("dotenv").config({
+//   path: `.env.${process.env.NODE_ENV}`,
+// });
+if (process.env.NODE_ENV == "production") {
+  require("dotenv").config({
+    path: `.env.production`,
+  })
+} else {
+  require("dotenv").config({
+    path: `.env.development`,
+  })
+}
 
 module.exports = {
   siteMetadata: {
