@@ -542,12 +542,10 @@ html, body{
   transform-origin: center;
   will-change: transform;
 }
-
 .faq-arrow.open {
   transform: rotate(180deg);
 }
-
- .together-body{
+.together-body{
     border-radius: 12px;
     background-color: #059669;
     padding: 112px 128px 112px 128px;
