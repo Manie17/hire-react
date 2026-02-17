@@ -71,17 +71,35 @@ html, body{
 }
 
 .client-logo-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap:85px;
-    align-items: center;
     margin-top: 200px;
 }
 
-.client-logo-img {
-    width: 200px;
-    height: auto;
+.client-logo-wrapper {
+  overflow: hidden;
+  width: 100%;
 }
+
+.logo-track {
+  display: flex;
+  gap: 60px;
+  width: max-content;
+  animation: scroll 20s linear infinite;
+}
+
+.logo-track img {
+  height:auto;
+  object-fit: contain;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 
 .hero-bottom {
     display: flex;
@@ -271,6 +289,7 @@ html, body{
     width:100%;
     height: auto;
     border-radius:10px;
+    margin-left: 50px;
 }
 .items{
     display: grid;

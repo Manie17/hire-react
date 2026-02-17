@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
@@ -15,6 +15,18 @@ import { Autoplay, Navigation, Mousewheel } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import BannerImg from "../../images/ReactDevImages/Bannerimg.png";
+import bussinessImage from "../../images/ReactDevImages/bussinessimg.png";
+import Railslogo from "../../images/ReactDevImages/Railslogo.png"
+import serviceImg from "../../images/ReactDevImages/serviceimg.png"
+import QReport from "../../images/ReactDevImages/QReport.png";
+import Pricebook from "../../images/ReactDevImages/Pricebook-digital.png";
+import Toyota from "../../images/ReactDevImages/Toyota.png";
+
+
+
+
+
 
 export default function Rails({ data }) {
   const railsItem = data?.allStrapiService?.nodes?.[0];
@@ -22,44 +34,48 @@ export default function Rails({ data }) {
   const testimonials = data?.allStrapiTestimonial?.nodes ?? [];
   // const [activeIndex, setActiveIndex] = React.useState(null);
 
-  const bannerImage = railsItem?.Bannerimg
-    ? getImage(railsItem.Bannerimg.localFile)
-    : null;
+  // const bannerImage = railsItem?.Bannerimg
+  //   ? getImage(railsItem.Bannerimg.localFile)
+  //   : null;
 
   const heroLogo = railsItem?.Herologo
     ? getImage(railsItem.Herologo.localFile)
     : null;
-  const bussinessImage = railsItem?.bussinessImg
-    ? getImage(railsItem.bussinessImg.localFile)
-    : null;
+  // const bussinessImage = railsItem?.bussinessImg
+  //   ? getImage(railsItem.bussinessImg.localFile)
+  //   : null;
   const serviceImage = railsItem?.serviceImg
     ? getImage(railsItem.serviceImg.localFile)
     : null;
-  // const handleFaqClick = (faq, idx) => {
-  //   const action = faq?.actionButton?.actionType;
+ 
+    const logos=[
+       { id: 1, img: QReport},
+       { id: 2, img: Pricebook},
+       { id: 3, img: Toyota},
+       { id: 4, img: QReport},
+       { id: 5, img: Toyota},
+       { id: 6, img: QReport},
+       { id: 7, img: Pricebook},
+       {id:8,img:QReport},
+       {id:9,img:Pricebook},
 
-  //   switch (action) {
-  //     case "toggle":
-  //       setActiveIndex(activeIndex === idx ? null : idx);
-  //       break;
+       ];
 
-  //     default:
-  //       console.warn("FAQ action missing");
-  //   }
-  // };
 
-  return (
+ return (
     <Layout>
       {/* HERO SECTION */}
        <div className="hero-logo-container">
-          {heroLogo && (
+          {/* {heroLogo && (
             <GatsbyImage
               image={heroLogo}
               alt="Hero Logo"
               className="hero-logo"
             />
-          )}
-        </div>
+          )} */}
+             <img src={Railslogo} alt="Banner" />
+
+       </div>
   
         <div className="hero-container">
           <div className="hero-grid">
@@ -80,29 +96,40 @@ export default function Rails({ data }) {
             </div>
 
             <div className="hero-right">
-              {bannerImage && (
+              {/* {bannerImage && (
                 <GatsbyImage
                   image={bannerImage}
                   alt="Rails"
                   className="hero-img"
                 />
-              )}
+              )} */}
+              <img src={BannerImg} alt="Banner" />
+
             </div>
           </div>
+      </div>    
         
 
         {/* CLIENT LOGOS */}
-        <div className="client-logo-wrapper">
-          {railsItem.clientLogo?.map((img, index) => (
+        {/* <div className="client-logo-wrapper">
+          {/* {railsItem.clientLogo?.map((img, index) => (
             <GatsbyImage
               key={index}
               image={getImage(img.localFile)}
               className="client-logos"
               alt="Client Logo"
             />
-          ))}
-        </div>
-        </div>
+          ))} */}
+        {/* </div> */} 
+        {/* </div> */}
+
+        <div className="client-logo-wrapper">
+        <div className="logo-track">
+         {[...logos, ...logos].map((logo, index) => (
+         <img key={index} src={logo.img} alt="client logo" />
+        ))}
+       </div>
+       </div>
 
       {/* OVERVIEW SECTION */}
       <div className="overview-container cmn-container">
@@ -135,13 +162,14 @@ export default function Rails({ data }) {
             <div className="offer-left">
               <h1 className="offer-title h2">{offer.offerTitle}</h1>
               <p className="offer-p p2 ">{offer.offerPassage}</p>
-              {serviceImage && (
+              {/* {serviceImage && (
                 <GatsbyImage
                   image={serviceImage}
                   alt="Hero Logo"
                   className="service-img"
                 />
-              )}
+              )} */}
+                <img src={serviceImg} alt="serviceimg"/>
             </div>
 
             <div className="offer-right">
@@ -181,20 +209,27 @@ export default function Rails({ data }) {
                   : null;
 
                 return (
-                  <SwiperSlide key={idx}>
-                    <div className="stats-card">
-                      {logoImage && (
-                        <GatsbyImage
-                          image={logoImage}
-                          alt="Stats Logo"
-                          className="stats-logo"
-                        />
-                      )}
-
-                      <h2 className="stats-value h1">{stats.value}</h2>
-                      <p className="stats-text p3">{stats.experience}</p>
-                    </div>
+                  
+                  //   <div className="stats-card">
+                  //     {/* {logoImage && (
+                  //       <GatsbyImage
+                  //         image={logoImage}
+                  //         alt="Stats Logo"
+                  //         className="stats-logo"
+                  //       />
+                  //     )} */}
+                  // </div>
+                  
+                  <div className="stats-card">
+                    {logos.map((logo) => (
+                    <SwiperSlide key={logo.id}>
+                   <img src={logo.img} alt="client logo" />
+                   <h2 className="stats-value h1">{stats.value}</h2>
+                   <p className="stats-text p3">{stats.experience}</p>
                   </SwiperSlide>
+  ))}
+</div>
+
                 );
               })}
             </Swiper>
@@ -204,13 +239,16 @@ export default function Rails({ data }) {
             <button className="hero-btn">{railsItem.heroBtn.title}</button>
           </div>
 
-          {bussinessImage && (
+          {/* {bussinessImage && (
             <GatsbyImage
               image={bussinessImage}
               alt="Bussiness"
               className="bussiness-img"
             />
-          )}
+          )} */}
+          <div className="bussiness-img">
+          <img src={bussinessImage} />
+          </div>
           <div className="btn-wrapper">
             <button className="hero-btn">{railsItem.heroBtn.title}</button>
           </div>

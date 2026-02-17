@@ -1,9 +1,10 @@
 require("dotenv").config({
-  pathPrefix: "/hire-react",
-});
+  path: `.env.${process.env.NODE_ENV}`,
+})
 
 
 module.exports = {
+    pathPrefix: "/hire-react",
   siteMetadata: {
     siteUrl: `https://www.yourdomain.tld`,
   },
@@ -20,6 +21,7 @@ module.exports = {
             singularName: "service",
             queryParams: {
               populate: [
+
                 "Herologo",
                 "Bannerimg",
                 "clientLogo",
