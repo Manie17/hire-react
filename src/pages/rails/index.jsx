@@ -34,19 +34,19 @@ export default function Rails({ data }) {
   const testimonials = data?.allStrapiTestimonial?.nodes ?? [];
   // const [activeIndex, setActiveIndex] = React.useState(null);
 
-  // const bannerImage = railsItem?.Bannerimg
-  //   ? getImage(railsItem.Bannerimg.localFile)
-  //   : null;
-
-  const heroLogo = railsItem?.Herologo
-    ? getImage(railsItem.Herologo.localFile)
+  const bannerImage = railsItem?.Bannerimg
+    ? getImage(railsItem.Bannerimg.localFile)
     : null;
+
+  // const heroLogo = railsItem?.Herologo
+  //   ? getImage(railsItem.Herologo.localFile)
+  //   : null;
   // const bussinessImage = railsItem?.bussinessImg
   //   ? getImage(railsItem.bussinessImg.localFile)
   //   : null;
-  const serviceImage = railsItem?.serviceImg
-    ? getImage(railsItem.serviceImg.localFile)
-    : null;
+  // const serviceImage = railsItem?.serviceImg
+  //   ? getImage(railsItem.serviceImg.localFile)
+  //   : null;
  
     const logos=[
        { id: 1, img: QReport},
@@ -96,14 +96,14 @@ export default function Rails({ data }) {
             </div>
 
             <div className="hero-right">
-              {/* {bannerImage && (
+              {bannerImage && (
                 <GatsbyImage
                   image={bannerImage}
                   alt="Rails"
                   className="hero-img"
                 />
-              )} */}
-              <img src={BannerImg} alt="Banner" />
+              )}
+              {/* <img src={BannerImg} alt="Banner" /> */}
 
             </div>
           </div>
@@ -219,7 +219,7 @@ export default function Rails({ data }) {
                   //       />
                   //     )} */}
                   // </div>
-                  
+
                   <div className="stats-card">
                     {logos.map((logo) => (
                     <SwiperSlide key={logo.id}>
@@ -227,10 +227,9 @@ export default function Rails({ data }) {
                    <h2 className="stats-value h1">{stats.value}</h2>
                    <p className="stats-text p3">{stats.experience}</p>
                   </SwiperSlide>
-  ))}
-</div>
-
-                );
+                ))}
+                </div>
+               );
               })}
             </Swiper>
           </div>
