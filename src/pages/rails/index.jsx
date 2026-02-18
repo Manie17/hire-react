@@ -15,10 +15,10 @@ import { Autoplay, Navigation, Mousewheel } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import BannerImg from "../../images/ReactDevImages/Bannerimg.png";
-import bussinessImage from "../../images/ReactDevImages/bussinessimg.png";
-import Railslogo from "../../images/ReactDevImages/Railslogo.png"
-import serviceImg from "../../images/ReactDevImages/serviceimg.png"
+// import BannerImg from "../../images/ReactDevImages/Bannerimg.png";
+// import bussinessImage from "../../images/ReactDevImages/bussinessimg.png";
+// import Railslogo from "../../images/ReactDevImages/Railslogo.png"
+// import serviceImg from "../../images/ReactDevImages/serviceimg.png"
 import QReport from "../../images/ReactDevImages/QReport.png";
 import Pricebook from "../../images/ReactDevImages/Pricebook-digital.png";
 import Toyota from "../../images/ReactDevImages/Toyota.png";
@@ -32,7 +32,7 @@ export default function Rails({ data }) {
   const railsItem = data?.allStrapiService?.nodes?.[0];
   const offer = data?.allStrapiOffer?.nodes?.[0];
   const testimonials = data?.allStrapiTestimonial?.nodes ?? [];
-  // const [activeIndex, setActiveIndex] = React.useState(null);
+ 
 
   const bannerImage = railsItem?.Bannerimg
     ? getImage(railsItem.Bannerimg.localFile)
@@ -73,9 +73,11 @@ export default function Rails({ data }) {
               className="hero-logo"
             />
           )} */}
-             <img src={Railslogo} alt="Banner" />
-
-       </div>
+              <StaticImage
+                      src="../../images/ReactDevImages/Railslogo.png"
+                      alt="banner-img"
+              />
+ </div>
   
         <div className="hero-container">
           <div className="hero-grid">
@@ -96,16 +98,19 @@ export default function Rails({ data }) {
             </div>
 
             <div className="hero-right">
-              {bannerImage && (
+              {/* {bannerImage && (
                 <GatsbyImage
                   image={bannerImage}
                   alt="Rails"
                   className="hero-img"
                 />
-              )}
+              )} */}
               {/* <img src={BannerImg} alt="Banner" /> */}
-
-            </div>
+              <StaticImage
+                src="../../images/ReactDevImages/Bannerimg.png"
+                alt="banner-img"
+              />
+             </div>
           </div>
       </div>    
         
@@ -169,7 +174,11 @@ export default function Rails({ data }) {
                   className="service-img"
                 />
               )} */}
-                <img src={serviceImg} alt="serviceimg"/>
+                {/* <img src={serviceImg} alt="serviceimg"/> */}
+                <StaticImage
+                src="../../images/ReactDevImages/serviceimg.png"
+                alt="service-img"
+                />
             </div>
 
             <div className="offer-right">
@@ -246,7 +255,10 @@ export default function Rails({ data }) {
             />
           )} */}
           <div className="bussiness-img">
-          <img src={bussinessImage} />
+          <StaticImage
+          src="../../images/ReactDevImages/bussinessimg.png"
+          alt="service-img"
+          />
           </div>
           <div className="btn-wrapper">
             <button className="hero-btn">{railsItem.heroBtn.title}</button>
