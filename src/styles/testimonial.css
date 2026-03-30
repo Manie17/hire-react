@@ -1,9 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap");
+
 .testimonial-card {
-  width:340px;
-  height:420px;
-  padding:20px;
-  border-radius:16px;
-  background: #f6fffb;
+  width:320px;
+  height:550px;
+  padding:20px 20px;
+  border-radius:30px;
   border: 2px solid #9de7c2;
   font-family: Inter, sans-serif;
 }
@@ -26,16 +27,16 @@
 }
 
 .skills {
-  margin-top: 12px;
+  margin-top:30px;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 }
 
 .skill-tag {
-  background: #e6f7f0;
-  color: #167a5b;
-  font-size: 12px;
+  background-color: #05966929;
+  color:black;
+  font-size:18px;
   padding: 6px 12px;
   border-radius: 999px;
   font-weight: 500;

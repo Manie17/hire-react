@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import { graphql } from "gatsby";
 import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image";
 import ReactMarkdown from "react-markdown";
@@ -6,10 +7,11 @@ import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import "../../styles/testimonial.css";
 import "../../styles/global.css";
-import "../../styles/accordion.css"
+import "../../styles/accordion.css";
 import Layout from "../../components/Layout";
-import FaqAccordion from "../../components/Accordion";
+import FaqAccordion from "../../components/FaqAccordion";
 import TestimonialCard from "../../components/TestimonialCard";
+import Scroll from "../../components/Scroll.jsx";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Mousewheel } from "swiper/modules";
 import "swiper/css";
@@ -23,100 +25,83 @@ import QReport from "../../images/ReactDevImages/QReport.png";
 import Pricebook from "../../images/ReactDevImages/Pricebook-digital.png";
 import Toyota from "../../images/ReactDevImages/Toyota.png";
 
-
-
-
-
-
 export default function Rails({ data }) {
   const railsItem = data?.allStrapiService?.nodes?.[0];
   const offer = data?.allStrapiOffer?.nodes?.[0];
   const testimonials = data?.allStrapiTestimonial?.nodes ?? [];
- 
 
   const bannerImage = railsItem?.Bannerimg
     ? getImage(railsItem.Bannerimg.localFile)
     : null;
 
-  // const heroLogo = railsItem?.Herologo
-  //   ? getImage(railsItem.Herologo.localFile)
-  //   : null;
-  // const bussinessImage = railsItem?.bussinessImg
-  //   ? getImage(railsItem.bussinessImg.localFile)
-  //   : null;
-  // const serviceImage = railsItem?.serviceImg
-  //   ? getImage(railsItem.serviceImg.localFile)
-  //   : null;
- 
-    const logos=[
-       { id: 1, img: QReport},
-       { id: 2, img: Pricebook},
-       { id: 3, img: Toyota},
-       { id: 4, img: QReport},
-       { id: 5, img: Toyota},
-       { id: 6, img: QReport},
-       { id: 7, img: Pricebook},
-       {id:8,img:QReport},
-       {id:9,img:Pricebook},
+  const logos = [
+    { id: 1, img: QReport },
+    { id: 2, img: Pricebook },
+    { id: 3, img: Toyota },
+    { id: 4, img: QReport },
+    { id: 5, img: Toyota },
+    { id: 6, img: QReport },
+    { id: 7, img: Pricebook },
+    { id: 8, img: QReport },
+    { id: 9, img: Pricebook },
+  ];
+  console.log("bottomHead:", railsItem?.bottomHead);
 
-       ];
-
-
- return (
+  return (
     <Layout>
       {/* HERO SECTION */}
-       <div className="hero-logo-container">
-          {/* {heroLogo && (
+      <div className="hero-logo-container">
+        {/* {heroLogo && (
             <GatsbyImage
               image={heroLogo}
               alt="Hero Logo"
               className="hero-logo"
             />
           )} */}
-              <StaticImage
-                      src="../../images/ReactDevImages/Railslogo.png"
-                      alt="banner-img"
-              />
- </div>
-  
-        <div className="hero-container">
-          <div className="hero-grid">
-            <div className="hero-left">
-              <h1 className="h1 green">{railsItem.heroTitle1}</h1>
-              <h1 className="h2">{railsItem.heroTitle2}</h1>
-              <p className="hero-desc">{railsItem.heroPassage}</p>
+        <StaticImage
+          src="../../images/ReactDevImages/Railslogo.png"
+          alt="banner-img"
+        />
+      </div>
 
-              <div className="hero-bottom">
-                {railsItem.heroBtn && (
-                  <a href={railsItem.heroBtn.slug}>
-                    <button className="hero-btn">
-                      {railsItem.heroBtn.title}
-                    </button>
-                  </a>
-                )}
-              </div>
+      <div className="hero-container">
+        <div className="hero-grid">
+          <div className="hero-left">
+            <h1 className="h1 green">{railsItem.heroTitle1}</h1>
+            <h1 className="h2">{railsItem.heroTitle2}</h1>
+            <p className="hero-desc">{railsItem.heroPassage}</p>
+
+            <div className="hero-bottom">
+              {railsItem.heroBtn && (
+                <a href={railsItem.heroBtn.slug}>
+                  <button className="hero-btn">
+                    {railsItem.heroBtn.title}
+                  </button>
+                </a>
+              )}
             </div>
+          </div>
 
-            <div className="hero-right">
-              {/* {bannerImage && (
+          <div className="hero-right">
+            {/* {bannerImage && (
                 <GatsbyImage
                   image={bannerImage}
                   alt="Rails"
                   className="hero-img"
                 />
               )} */}
-              {/* <img src={BannerImg} alt="Banner" /> */}
-              <StaticImage
-                src="../../images/ReactDevImages/Bannerimg.png"
-                alt="banner-img"
-              />
-             </div>
+            {/* <img src={BannerImg} alt="Banner" /> */}
+            <StaticImage
+              src="../../images/ReactDevImages/Bannerimg.png"
+              alt="banner-img"
+              className="hero-banner"
+            />
           </div>
-      </div>    
-        
+        </div>
+      </div>
 
-        {/* CLIENT LOGOS */}
-        {/* <div className="client-logo-wrapper">
+      {/* CLIENT LOGOS */}
+      {/* <div className="client-logo-wrapper">
           {/* {railsItem.clientLogo?.map((img, index) => (
             <GatsbyImage
               key={index}
@@ -125,16 +110,16 @@ export default function Rails({ data }) {
               alt="Client Logo"
             />
           ))} */}
-        {/* </div> */} 
-        {/* </div> */}
+      {/* </div> */}
+      {/* </div> */}
 
-        <div className="client-logo-wrapper">
+      <div className="client-logo-wrapper">
         <div className="logo-track">
-         {[...logos, ...logos].map((logo, index) => (
-         <img key={index} src={logo.img} alt="client logo" />
-        ))}
-       </div>
-       </div>
+          {[...logos, ...logos].map((logo, index) => (
+            <img key={index} src={logo.img} alt="client logo" />
+          ))}
+        </div>
+      </div>
 
       {/* OVERVIEW SECTION */}
       <div className="overview-container cmn-container">
@@ -174,11 +159,12 @@ export default function Rails({ data }) {
                   className="service-img"
                 />
               )} */}
-                {/* <img src={serviceImg} alt="serviceimg"/> */}
-                <StaticImage
+              {/* <img src={serviceImg} alt="serviceimg"/> */}
+              <StaticImage
                 src="../../images/ReactDevImages/serviceimg.png"
                 alt="service-img"
-                />
+                className="service-img"
+              />
             </div>
 
             <div className="offer-right">
@@ -218,27 +204,16 @@ export default function Rails({ data }) {
                   : null;
 
                 return (
-                  
-                  //   <div className="stats-card">
-                  //     {/* {logoImage && (
-                  //       <GatsbyImage
-                  //         image={logoImage}
-                  //         alt="Stats Logo"
-                  //         className="stats-logo"
-                  //       />
-                  //     )} */}
-                  // </div>
-
                   <div className="stats-card">
                     {logos.map((logo) => (
-                    <SwiperSlide key={logo.id}>
-                   <img src={logo.img} alt="client logo" />
-                   <h2 className="stats-value h1">{stats.value}</h2>
-                   <p className="stats-text p3">{stats.experience}</p>
-                  </SwiperSlide>
-                ))}
-                </div>
-               );
+                      <SwiperSlide key={logo.id}>
+                        <img src={logo.img} alt="client logo" />
+                        <h2 className="stats-value h1">{stats.value}</h2>
+                        <p className="stats-text p3">{stats.experience}</p>
+                      </SwiperSlide>
+                    ))}
+                  </div>
+                );
               })}
             </Swiper>
           </div>
@@ -247,18 +222,12 @@ export default function Rails({ data }) {
             <button className="hero-btn">{railsItem.heroBtn.title}</button>
           </div>
 
-          {/* {bussinessImage && (
-            <GatsbyImage
-              image={bussinessImage}
-              alt="Bussiness"
+          <div className="bussiness-photo">
+            <StaticImage
+              src="../../images/ReactDevImages/bussinessimg.png"
+              alt="service-img"
               className="bussiness-img"
             />
-          )} */}
-          <div className="bussiness-img">
-          <StaticImage
-          src="../../images/ReactDevImages/bussinessimg.png"
-          alt="service-img"
-          />
           </div>
           <div className="btn-wrapper">
             <button className="hero-btn">{railsItem.heroBtn.title}</button>
@@ -266,88 +235,124 @@ export default function Rails({ data }) {
         </div>
       </div>
 
+      <div className="cmn-container table-back">
+        <h1 className="h2 table-title">{railsItem.tableTitle}</h1>
 
+        <div className="compare-table">
+          <div className="maintab">
+            <table>
+              <thead>
+                <tr>
+                  <th className="h4 col-1">
+                    {railsItem.tableHead?.[0]?.headTitle1}
+                  </th>
+                  <th className="h4 col-2">
+                    {railsItem.tableHead?.[0]?.headTitle2}
+                  </th>
+                  <th className="h4 col-3">
+                    {railsItem.tableHead?.[0]?.headTitle3}
+                  </th>
+                  <th className="h4 grey">
+                    {railsItem.tableHead?.[0]?.headTitle4}
+                  </th>
+                </tr>
+              </thead>
 
-
-
-      <div className="testi-sec">
-        <div className="testi-head">
-          <h1 className="h2 testi-tit">{railsItem.testiTitle}</h1>
+              <tbody>
+                {railsItem.tableComp?.map((table, tableIdx) => (
+                  <tr key={tableIdx}>
+                    <td className="p3 aspect-row">{table.title1}</td>
+                    <td className="p3 inhouse-row">{table.title2}</td>
+                    <td className="p3 rails-row">{table.title3}</td>
+                    <td className="p3 others-row">{table.title4}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
-        <div className="testi-grid">
-          <Swiper
-            modules={[Autoplay, Navigation]}
-            spaceBetween={0}
-            slidesPerView={3}
-            slidesPerGroup={3}
-            loop={true}
-            loopFillGroupWithBlank={false}
-            autoplay={{
-              delay: 5000,
-              disableOnInteraction: false,
-            }}
-            navigation={{
-              nextEl: ".testi-next",
-              prevEl: ".testi-prev",
-            }}
-            breakpoints={{
-              0: {
-                slidesPerView: 1,
-                slidesPerGroup: 1,
-                navigation:false,
-              },
-              768: {
-                slidesPerView: 2,
-                slidesPerGroup: 2,
-              },
-              1024: {
-                slidesPerView: 3,
-                slidesPerGroup: 3,
-              },
-            }}
-          >
-            {testimonials.map((node, idx) => (
-              <SwiperSlide key={idx}>
-                <div className="testi-swipe">
-                  <TestimonialCard data={node.testiComp} />
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-        <div className="testi-nav">
-          <button className="testi-prev">{"<"}</button>
-          <button className="testi-next">{">"}</button>
+      </div>
+
+      <div className="cmn-container">
+        <div className="testi-sec">
+          <div className="testi-head">
+            <h1 className="h2 testi-tit">{railsItem.testiTitle}</h1>
+          </div>
+          <div className="testi-grid">
+            <Swiper
+              modules={[Autoplay, Navigation]}
+              spaceBetween={0}
+              slidesPerView={3}
+              slidesPerGroup={3}
+              loop={true}
+              loopFillGroupWithBlank={false}
+              autoplay={{
+                delay: 5000,
+                disableOnInteraction: false,
+              }}
+              navigation={{
+                nextEl: ".testi-next",
+                prevEl: ".testi-prev",
+              }}
+              breakpoints={{
+                0: {
+                  slidesPerView: 1,
+                  slidesPerGroup: 1,
+                  navigation: false,
+                },
+                768: {
+                  slidesPerView: 2,
+                  slidesPerGroup: 2,
+                },
+                1024: {
+                  slidesPerView: 3,
+                  slidesPerGroup: 3,
+                },
+              }}
+            >
+              {testimonials.map((node, idx) => (
+                <SwiperSlide key={idx}>
+                  <div className="testi-swipe">
+                    <TestimonialCard data={node.testiComp} />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+          <div className="testi-nav">
+            <button className="testi-prev">{"<"}</button>
+            <button className="testi-next">{">"}</button>
+          </div>
         </div>
       </div>
 
       {/* industry-sec */}
-      <div className="industry-sec">
-        <div className="cmn-container">
-          <h1 className="h3 indus-title">{railsItem.industryTitle}</h1>
-          <p className="p1 indus-d">{railsItem.industryDesc}</p>
-          <div className="industry-grid">
-            {railsItem?.indusCard?.map((indus, idx) => {
-              const iconImage = indus?.icon
-                ? getImage(indus.icon.localFile)
-                : null;
+      {/* <div className="industry-sec"> */}
+      <div className="cmn-container">
+        <h1 className="h3 indus-title">{railsItem.industryTitle}</h1>
+        <p className="p1 indus-d">{railsItem.industryDesc}</p>
+        <div className="industry-grid">
+          {railsItem?.indusCard?.map((indus, idx) => {
+            const iconImage = indus?.icon
+              ? getImage(indus.icon.localFile)
+              : null;
 
-              return (
-                <div key={idx} className="industry-card">
-                  {iconImage && (
-                    <GatsbyImage
-                      image={iconImage}
-                      alt={indus.title}
-                      className="industry-icon"
-                    />
-                  )}
-                  <h4 className="p1 icon-title">{indus.title}</h4>
-                </div>
-              );
-            })}
-          </div>
+            return (
+              <div key={idx} className="industry-card">
+                {iconImage && (
+                  <GatsbyImage
+                    image={iconImage}
+                    alt={indus.title}
+                    className="industry-icon"
+                  />
+                )}
+                <h4 className="p1 icon-title">{indus.title}</h4>
+              </div>
+            );
+          })}
         </div>
       </div>
+      {/* </div> */}
 
       <div className="Price-sec cmn-container">
         <div className="price-head">
@@ -395,7 +400,12 @@ export default function Rails({ data }) {
         </div>
       </div>
 
-      <div className="carousel-sec cmn container">
+  {/* scroll */}
+  <div>
+  <Scroll></Scroll>
+  </div>
+
+      {/* <div className="carousel-sec cmn-container">
         <div className="carousel-body">
           <div className="cycli-btn">
             <button className="testi-btn">
@@ -415,7 +425,6 @@ export default function Rails({ data }) {
               <Swiper
                 modules={[Mousewheel, Navigation]}
                 direction={"vertical"}
-                loop={true}
                 slidesPerView={1}
                 spaceBetween={30}
                 mousewheel={true}
@@ -445,15 +454,15 @@ export default function Rails({ data }) {
                     <SwiperSlide key={idx}>
                       <div className="testi-flex">
                         <div className="pfimg">
-                        {profileImg && (
-                          <GatsbyImage
-                            image={profileImg}
-                            alt={carol.testiDesignation || "profile"}
-                            className="testi-profile-img"
-                          />
-                        )}
+                          {profileImg && (
+                            <GatsbyImage
+                              image={profileImg}
+                              alt={carol.testiDesignation || "profile"}
+                              className="testi-profile-img"
+                            />
+                          )}
                         </div>
-                        <p className="h5">{carol.testiContent}</p>
+                        <p className="p1">{carol.testiContent}</p>
                       </div>
 
                       <div className="testi-flex">
@@ -476,7 +485,7 @@ export default function Rails({ data }) {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="faq-sec cmn-container">
         <div className="faq-head">
@@ -487,17 +496,15 @@ export default function Rails({ data }) {
           </div>
         </div>
 
-      
-
-         <div className="faq-grid">
+        <div className="faq-grid">
           <div className="faq-left indus-d">
             <h1 className="h2 faq-t">{railsItem.faqTitle}</h1>
           </div>
           {railsItem.faqItem?.length > 0 && (
-        <FaqAccordion faqItem={railsItem.faqItem} />
-      )}
-         </div>
-      </div>   
+            <FaqAccordion faqItem={railsItem.faqItem} />
+          )}
+        </div>
+      </div>
 
       <div className="together-sec cmn-container">
         <div className="together-body">
@@ -511,7 +518,77 @@ export default function Rails({ data }) {
           <p className="p3">{railsItem.togetherPara}</p>
         </div>
       </div>
-    </Layout>
+
+      {/* <div className="cmn-container bottom-sec">
+        <div className="bottom-wrapper">
+          
+          <div className="bottom-left">
+            <StaticImage
+              src="../../images/ReactDevImages/Railslogo.png"
+              alt="rails-logo"
+              className="Hero-logo"
+            />
+
+            <div className="middle-logo">
+              <StaticImage
+                src="../../images/ReactDevImages/clutch-img.svg"
+                className="clutch-img"
+                alt="clutch"
+              />
+              <StaticImage
+                src="../../images/ReactDevImages/sedin-logo.svg"
+                className="sedin-img"
+                alt="sedin"
+              />
+            </div>
+          </div>
+
+          
+          <div className="bottom-right">
+            
+            <div className="footer-col cursor">
+              <h1 className="h4 white green">
+                {railsItem?.bottomHead?.bottomTitle1}
+              </h1>
+
+              {railsItem?.bottomElement?.map((item, idx) => (
+                <p className="white p4 element" key={idx}>
+                  {item.bottomEle1}
+                </p>
+              ))}
+            </div>
+
+            
+            <div className="footer-col">
+              <h1 className="h4 white green">
+                {railsItem?.bottomHead?.bottomTitle2}
+              </h1>
+
+              {railsItem?.bottomElement?.map((item, idx) => (
+                <p className="white p4 element" key={idx}>
+                  {item.bottomEle2}
+                </p>
+              ))}
+            </div>
+
+          
+            <div className="footer-col">
+              <h1 className="h4 white green">
+                {railsItem?.bottomHead?.bottomTitle3}
+              </h1>
+
+              {railsItem?.bottomElement?.map((item, idx) => (
+                <p className="white p4 element" key={idx}>
+                  {item.bottomEle3}
+                </p>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div> */}
+
+
+</Layout>
   );
 }
 
@@ -553,8 +630,6 @@ export const query = graphql`
         # ================= INDUSTRY =================
         industryTitle
         industryDesc
-
-        
 
         indusCard {
           title
@@ -663,10 +738,27 @@ export const query = graphql`
           arrowIcon {
             localFile {
               childImageSharp {
-                gatsbyImageData(width:32, layout: FIXED, placeholder: BLURRED)
+                gatsbyImageData(width: 32, layout: FIXED, placeholder: BLURRED)
               }
             }
           }
+        }
+
+        # ====================Table===============
+        tableTitle
+
+        tableComp {
+          title1
+          title2
+          title3
+          title4
+        }
+
+        tableHead {
+          headTitle1
+          headTitle2
+          headTitle3
+          headTitle4
         }
 
         # ================= CTA =================
@@ -686,6 +778,20 @@ export const query = graphql`
           hireBtn
           faqBtn
           testiBtn
+        }
+
+        #=================bottom==========
+
+        bottomHead {
+          bottomTitle1
+          bottomTitle2
+          bottomTitle3
+        }
+
+        bottomElement {
+          bottomEle1
+          bottomEle2
+          bottomEle3
         }
       }
     }
@@ -717,7 +823,7 @@ export const query = graphql`
           devProfiles {
             localFile {
               childImageSharp {
-                gatsbyImageData(placeholder: BLURRED, quality: 100,)
+                gatsbyImageData(placeholder: BLURRED, quality: 100)
               }
             }
           }

@@ -233,7 +233,7 @@ html, body{
     margin-bottom: 40px;
 }
 .service-img{
-    width:50%;
+    /* width:50%; */
     height: auto;
 }
 .offer-p{
@@ -289,7 +289,6 @@ html, body{
     width:100%;
     height: auto;
     border-radius:10px;
-    margin-left: 50px;
 }
 .items{
     display: grid;
@@ -389,7 +388,7 @@ html, body{
 }
 
 .swiper-slide {
-  width: 100%;
+    width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -403,11 +402,6 @@ html, body{
     display: flex;   
     gap:56px;
 }
-
-.swiper-slide-active .testi-flex:first-child {
-    /* align-items: flex-start; */
-}
-
 .swiper-slide .testi-flex:last-child {
     display: flex;
     justify-content: space-between;
@@ -430,8 +424,8 @@ html, body{
 }
 .carol-nav {
     position: absolute;
-    left:150px;         
-    top: 12800px;
+    left:200px;         
+    top:14500px;
     transform: translateY(-50%);
     z-index: 10;
 }
@@ -451,7 +445,7 @@ html, body{
 .testicli-img img {
   width: 100%;
   height:auto;
-  margin-top: 30px;
+  margin-top:30px;
   object-fit: contain;
   filter: brightness(0) invert(1);
 }
@@ -622,7 +616,7 @@ html, body{
 .indus-title{
     padding-bottom:32px;
 }
- .indus-d{
+.indus-d{
     white-space: pre-line;
     padding-bottom: 80px;
 } 
@@ -630,6 +624,443 @@ html, body{
     padding-top: 24px;
     padding-bottom: 24px;
 }
+.table-title{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color: #fff;
+  padding-bottom:50px;
+}
+.table-back{
+  background-color: #101827;
+}
+
+.maintab{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.compare-table{
+  background:#0f1c2e;
+  width:100%;
+  overflow-x: auto;
+}
+
+/* 
+.compare-table table{
+  width:100%;
+  border-collapse:collapse;
+  table-layout:fixed;
+} */
+
+.maintab table {
+  width: 100%;
+  border-collapse: separate; 
+  border-spacing: 15px 15px; 
+}
+
+.compare-table th,
+.compare-table td{
+  width:25%;
+  /* border:1px solid #5c6b7a; */
+  padding:20px;
+  color:white;
+  word-break:break-word;
+}
+.maintab th,
+.maintab td {
+  padding: 20px;
+  text-align: center;
+}
+
+.aspect-row{
+  background:#1F2937;
+}
+
+.inhouse-row{
+  background:#2D3B4F;
+}
+
+.rails-row{
+  background:#059669;
+}
+
+.others-row{
+  background:#2D3B4F;
+}
+ .col-1{
+  background-color: #2D3B4F;
+ }
+ .col-2{
+  background-color: #1F2937;
+ }
+ .col-3{
+  background-color: #079669;
+ }
+ .col-4{
+  background-color: #1F2937;
+ }
+
+ .bottom-sec{
+  background-color: #101827;
+ }
+
+ .bottom-wrapper{
+  display: flex;
+  gap:70px;
+ }
+
+ .middle-logo{
+  display:flex;
+  gap:24px;
+  align-items:center;
+}
+
+.clutch-img img,
+.sedin-img img{
+  width:200px;
+  height:auto;
+  margin-top:80px;
+}
+.bottom-right{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap:56px;
+}
+.white{
+  color: #fff;
+}
+.element{
+  margin-top:20px;
+}
+.cursor{
+  cursor: pointer;
+}
+
+/* .scroll-sec {
+  height: 400vh;
+  padding: 60px 40px;
+}
+.scroll-head h1 {
+  font-size: 48px;
+  margin-bottom: 40px;
+}
+.scroll-container {
+  position: sticky;
+  top: 0;
+  height:100vh;
+}
+.scroll-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  height: 100%;
+  align-items: center;
+}
+.card {
+  padding: 40px;
+  display: flex;
+  gap: 20px;
+
+  opacity:0;
+  transition: all 0.04s ease;
+
+  position: relative;
+  bottom:-55px;
+  z-index: 2;
+  padding-top:200px;
+}
+
+.bottom-part{
+  padding:40px;
+  display: flex;
+  gap:56px;
+
+  opacity:0;
+  transition: all 0.04s ease;
+
+  position: relative;
+  z-index: 2;
+  
+}
+.card.active, 
+.bottom-part.active{
+  opacity:1;
+  transform: translateY(0);
+}
+.timeline {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+
+  transform: translateY(-50%);
+  pointer-events: none;
+
+  z-index: 1;
+}
+.line {
+  width: 100%;
+  height: 1px;
+  background: #000;
+}
+.ball {
+  width: 14px;
+  height: 14px;
+  background: #10b981;
+  border-radius: 50%;
+
+  position: absolute;
+  top: 50%;
+  left: 0%;
+
+  transform: translate(-50%, -50%);
+  transition: left 0.1s linear;
+}
+.sec-1 {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.line-top{
+  width:1px;
+  min-height:215px;
+  background:#000;
+}
+
+.num {
+  font-size: 60px;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.bottom-part .content, .bottom-part .num{
+  margin-top:30px;
+} */
+
+/* .scroll-sec {
+  height: 400vh;
+  padding: 60px 40px;
+}
+
+
+.scroll-head h1 {
+  font-size: 48px;
+  margin-bottom: 40px;
+}
+
+
+.scroll-container {
+
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 1400px;
+  height: auto;
+
+}
+
+
+.scroll-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
+  overflow: hidden;
+}
+
+.card{
+  padding: 40px;
+  display: flex;
+  gap: 20px;
+
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.4s ease;
+
+  position: relative;
+  z-index: 2;
+}
+.bottom-part {
+  padding: 40px;
+  display: flex;
+  gap: 20px;
+
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.4s ease;
+
+  position: relative;
+  z-index: 2;
+}
+
+.card.active,
+.bottom-part.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+#step1 {
+  grid-column:1;
+  align-self: start;
+  text-align: left;
+}
+
+
+#step2 {
+  grid-column:1;
+  align-self: end;
+  text-align: left;
+}
+
+
+#step3 {
+  grid-column:2;
+  align-self: start;
+  text-align: left;
+}
+
+#step4 {
+  grid-column:2;
+  align-self: end;
+  text-align: left;
+}
+
+
+
+.sec-1 {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+
+.line-top {
+  width: 1px;
+  height:130px;
+  background: #000;
+}
+
+.num {
+  font-size: 60px;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width:320px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 500;
+  white-space: nowrap;
+ 
+}
+
+.desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+}
+
+
+
+.timeline {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+
+  transform: translateY(-50%);
+  pointer-events: none;
+
+  z-index: 1;
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  background: #000;
+}
+
+.ball {
+  width: 14px;
+  height: 14px;
+  background: #10b981;
+  border-radius: 50%;
+
+  position: absolute;
+  top: 50%;
+  left: 0%;
+
+  transform: translate(-50%, -50%);
+  transition: left 0.1s linear;
+} */
+
+
+
+
+/* TITLE */
+/* .title {
+  font-size: 22px;
+  font-weight: 500;
+  margin: 0;
+} */
+
+/* DESCRIPTION */
+/* .desc {
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0; */
+  /* max-width: 260px; */
+/* } */
+/* .bottom-part{
+      position: relative;
+      bottom: 100px;
+}
+.bottom-part .content, .bottom-part .num{
+  margin-top:30px;
+}
+.reveal {
+  overflow: hidden;
+} */
+
+/* DEFAULT hidden state */
+/* .card .reveal,
+.bottom-part .reveal {
+  height: 0%;
+  transition: height 0.4s ease;
+} */
+
+/* TOP CARDS → grow from bottom */
+/* .card.active .reveal {
+  height: 100%
+} */
+
+/* BOTTOM CARDS → grow from top */
+/* .bottom-part .reveal {
+  transform: translateY(-100%);
+}
+
+.bottom-part.active .reveal {
+  height: 100%;
+  transform: translateY(0%);
+} */
+
+
+
 
 /* custom */
 .h1{
@@ -655,7 +1086,6 @@ html, body{
     font-size: 36px;
     line-height: 40px;
     letter-spacing: -5%;
-    text-align: center;
 }
 .h5{
     font-weight: 500;
@@ -775,6 +1205,7 @@ html, body{
     width: 120px;
   }
 
+
   /* ---------- OVERVIEW ---------- */
 
   .overview-grid {
@@ -877,6 +1308,19 @@ html, body{
   .indus-title{
     font-size: 32px;
     font-weight: 400;
+  }
+
+  .compare-table {
+    overflow-x: auto;
+  }
+
+  .maintab table {
+    min-width: 900px;
+  }
+
+  .table-title {
+    font-size: 26px;
+    text-align: center;
   }
 }
 
@@ -1049,6 +1493,54 @@ html, body{
     font-size: 32px;
     font-weight: 400;
   }
+   .maintab table,
+  .maintab thead,
+  .maintab tbody,
+  .maintab th,
+  .maintab td,
+  .maintab tr {
+    display: block;
+    width: 100%;
+  }
 
+  .maintab thead {
+    display: none;
+  }
+
+  .maintab tr {
+    margin-bottom: 20px;
+    background: #111827;
+    border-radius: 10px;
+    padding: 15px;
+  }
+
+  .maintab td {
+    text-align: left;
+    padding: 10px 12px;
+    position: relative;
+  }
+
+  .maintab td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 5px;
+    color: #9CA3AF;
+  }
+  .hero-banner{
+    display: none;
+  }
+  .service-img{
+    width:300px;
+  }
+  .bussiness-img{
+   width: 100%;
+  }
 }
+
+
+
+
+
+
 

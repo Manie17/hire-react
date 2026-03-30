@@ -1,0 +1,128 @@
+
+.main-section {
+  padding: 112px;
+  position: relative;
+  height: 300vh;
+  background-color: #ecfdf5;
+}
+
+
+.sticky-container {
+  position: sticky;
+  top: 120px;
+}
+
+
+.main-title {
+  font-size: 36px;
+  line-height: 26px;  
+  font-weight: 400;
+  margin-top: 24px;
+  margin-bottom: 40px;
+}
+
+
+.desktop {
+  padding-top:100px;
+}
+
+.top-row,
+.bottom-row {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1100px;
+}
+
+
+.middle-line {
+  height: 40px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  position: relative;
+  margin: 40px 0;
+}
+
+
+.md-section {
+  border-left: 1px solid black;
+  padding: 16px 16px;
+  display: flex;
+  gap: 24px;
+  max-width: 420px;
+
+  
+  opacity: 0;
+  transform: translateY(40px);
+
+  transition: all 0.5s ease;
+}
+.md-section p{
+    margin-top: 20px;
+    font-size: 22px;  
+}
+
+.md-section h4{
+    font-size: 24px;
+    font-weight: 400;
+}
+.num{
+    font-size: 60px;
+}
+
+
+
+.scroll-ball {
+  position: absolute;
+  top: 10px;
+  width: 14px;
+  height: 14px;
+  background-color: #10b981;
+  border-radius: 50%;
+
+  left: calc(1% * var(--how-we-work-scroll));
+  transform: translateX(calc(1% * (var(--how-we-work-scroll) - 100)));
+
+  transition: all 0.3s ease;
+}
+
+
+
+
+
+
+.section-one {
+  opacity: calc(min(var(--how-we-work-scroll) / 10, 1));
+  transform: translateY(
+    calc(40px - min(var(--how-we-work-scroll), 10) * 4px)
+  );
+}
+
+
+.section-two {
+  opacity: calc(min(max(var(--how-we-work-scroll) - 25, 0) / 10, 1));
+  transform: translateY(
+    calc(40px - min(max(var(--how-we-work-scroll) - 25, 0), 10) * 4px)
+  );
+}
+
+
+.section-three {
+  opacity: calc(min(max(var(--how-we-work-scroll) - 50, 0) / 10, 1));
+  transform: translateY(
+    calc(40px - min(max(var(--how-we-work-scroll) - 50, 0), 10) * 4px)
+  );
+}
+
+
+.section-four {
+  opacity: calc(min(max(var(--how-we-work-scroll) - 75, 0) / 10, 1));
+  transform: translateY(
+    calc(40px - min(max(var(--how-we-work-scroll) - 75, 0), 10) * 4x)
+  );
+}
+
+
+.section-one { transform: translateY(40px); }
+.section-two { transform: translateY(-40px); }
+.section-three { transform: translateY(40px); }
+.section-four { transform: translateY(-40px); }
