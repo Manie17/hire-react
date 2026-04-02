@@ -63,7 +63,7 @@ const OurApproachV1 = (props) => {
 
           {/* Middle Line */}
           <div className="middle-line">
-            <span className="scroll-ball"></span>
+            <span className="scroll-ball"></span> 
           </div>
 
           {/* Bottom Row */}

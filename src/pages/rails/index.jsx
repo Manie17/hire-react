@@ -405,7 +405,7 @@ export default function Rails({ data }) {
   <Scroll></Scroll>
   </div>
 
-      {/* <div className="carousel-sec cmn-container">
+      <div className="carousel-sec cmn-container">
         <div className="carousel-body">
           <div className="cycli-btn">
             <button className="testi-btn">
@@ -485,7 +485,7 @@ export default function Rails({ data }) {
             </div>
           </div>
         </div>
-      </div> */}
+      </div>
 
       <div className="faq-sec cmn-container">
         <div className="faq-head">
@@ -519,7 +519,7 @@ export default function Rails({ data }) {
         </div>
       </div>
 
-      {/* <div className="cmn-container bottom-sec">
+      <div className="cmn-container bottom-sec">
         <div className="bottom-wrapper">
           
           <div className="bottom-left">
@@ -585,7 +585,7 @@ export default function Rails({ data }) {
             </div>
           </div>
         </div>
-      </div> */}
+      </div>
 
 
 </Layout>
